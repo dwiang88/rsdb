@@ -1,0 +1,16 @@
+#summary How to create a database by command-line user interface or by a .rsdb-structure file.
+
+= Introduction =
+
+Show common syntax to create databases and table, and introduce basic types for fields.
+
+
+= Details =
+
+== Creating a new empty database ==
+
+{{{
+database mydatabase {}
+}}}
+
+The line above create a new empty database called `mydatabase`.
