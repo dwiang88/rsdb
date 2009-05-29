@@ -1,4 +1,5 @@
 #summary How to create a database by command-line user interface or by a .rsdb-structure file.
+#labels Featured,Phase-Requirements,Phase-Design,Phase-Implementation
 
 = Introduction =
 
@@ -53,4 +54,4 @@ table friends
 
 The syntax `field-name: type;` is self-descriptive for who barely know database structures. Each `field-name` is a column in the table with the type `type`. The type `text` means for a text field with unlimited size. The `date` type means a simple date with days, months and years.
 
-You can view all supported datatypes and an explanation at the [Datatypes] page.
+You can view all supported data types and an explanation at the [DataTypes] page.
