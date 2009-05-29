@@ -15,10 +15,16 @@ RSDB supported the mostly used types of data. You can see the list below.
 || `boolean` || Holds a value that can vary between `false` and `true`. ||
 || `list` || Holds a list of constant string values. ||
 
-= Examples =
+= Description =
 
 == `text` datatype ==
+
+This type is always 16-bits unicode. But it can be storaged as an 8-bits unicode if the text is ASCII-only. There is no limit for the lenght of the content of a `text` field.
+
 == `number` datatype ==
+
+The `number` type stores multi-type multi-precision numbers, like naturals (42), float-point numbers (0.042), hexadecimals (42h), octals(42o), binaries (101010b) and even cientific notated numbers (2.2+45e).
+
 == `string` datatype ==
 == `md5` datatype ==
 == `boolean` datatype ==
