@@ -25,7 +25,7 @@ table mytable {}
 The line above create a new empty table called `mytable` in the global scope. To define a database scope for your table, you can use the syntax below.
 
 {{{
-table mydatabase.mytable{}
+table mydatabase.mytable {}
 }}}
 
 If the table is defined during the database creation, the syntax below can do the trick.
