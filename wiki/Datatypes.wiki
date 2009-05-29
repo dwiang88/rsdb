@@ -1,0 +1,25 @@
+#summary Supported datatypes and explanation.
+#labels Phase-Design,Phase-Requirements,Phase-Implementation
+= Introduction =
+
+RSDB supported the mostly used types of data. You can see the list below.
+
+
+= Details =
+
+|| *Type* || *Description* ||
+|| `text` || Holds an unlimited lenght unicode text. When used, it must be always surrounded by double quotes. ||
+|| `number` || Holds a variable precision number. ||
+|| `string` || Holds a fixed-size unicode text. _(Default is 256.)_ ||
+|| `md5` || Holds an 128 bits (16 bytes) MD5 sum. ||
+|| `boolean` || Holds a value that can vary between `false` and `true`. ||
+|| `list` || Holds a list of constant string values. ||
+
+= Examples =
+
+== `text` datatype ==
+== `number` datatype ==
+== `string` datatype ==
+== `md5` datatype ==
+== `boolean` datatype ==
+== `list` datatype ==
