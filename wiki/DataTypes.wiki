@@ -19,13 +19,26 @@ RSDB supported the mostly used types of data. You can see the list below.
 
 == `text` data type ==
 
-This type is always 16-bits Unicode. But it can be stored as an 8-bits Unicode if the text is ASCII-only. There is no limit for the length of the content of a `text` field.
+This type is always 16-bit Unicode. But it can be stored as an 8-bits Unicode if the text is ASCII-only. There is no limit for the length of the content of a `text` field.
 
 == `number` data type ==
 
 The `number` type stores multi-type multi-precision numbers, like naturals (42), float-point numbers (0.042), hexadecimals (42h), octals(42o), binaries (101010b) and even scientific notated numbers (2.2+45e).
 
 == `string` data type ==
+
+A fixed-length version of `text` type. The diference between `string` and `text` type is the optmization arround de code, make `string` faster to read and manipulate than `text`. By default, the maximum size that `string`type can hold is 256 Unicode characters in the 16-bit format. But you can declare an arbitrary size for the field put it between parenthesis. By example:
+
+{{{
+table mytable
+{
+    name: string;
+    description: string(2048);
+}
+}}}
+
+In the example above, `name` can hold a string with a maximum size of 256 characters, and `description` can hold a maximum string of 2048 characters. The maximum length that can be declared for a `string` field is 4294967295 characters (about 4 gigabytes.) The minimum length is 1.
+
 == `md5` data type ==
 == `boolean` data type ==
 == `list` data type ==
