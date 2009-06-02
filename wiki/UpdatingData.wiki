@@ -54,3 +54,12 @@ update mytable
     }
 }
 }}}
+
+= Updating all rows =
+
+{{{
+update mytable
+{
+    access = "user";
+}
+}}}
