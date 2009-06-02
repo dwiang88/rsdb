@@ -44,11 +44,11 @@ update mytable
 {{{
 update mytable
 {
-    where (name is "^J") // Starts with 'J'
+    where (name match "^J") // Starts with 'J'
     {
         team = "The Jays";
     }
-    where (surname is "Smith") // surname contains "Smith"
+    where (surname match "Smith") // surname contains "Smith"
     {
         team = "The Agents";
     }
