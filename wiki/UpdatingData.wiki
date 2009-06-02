@@ -1,0 +1,56 @@
+#summary Some ways to update data on the database.
+#labels Phase-Design,Phase-Implementation,Phase-Requirements
+
+= Introduction =
+
+There is a few ways to update data on the database. There is a way for single row update and multiple rows update.
+
+= Updating a table row =
+
+{{{
+update mytable
+{
+    where (name = "John") name = "Peter";
+}
+}}}
+
+= Updating multiple columns in a single row =
+
+{{{
+update mytable
+{
+    where (name = "John")
+    {
+        name = "Peter";
+        age = 42;
+    }
+}
+}}}
+
+= Updating multiple rows =
+
+{{{
+update mytable
+{
+    where (age >= 42)
+    {
+        position = "Senior";
+    }
+}
+}}}
+
+== Multiple conditions ==
+
+{{{
+update mytable
+{
+    where (name is "^J") // Starts with 'J'
+    {
+        team = "The Jays";
+    }
+    where (surname is "Smith") // surname contains "Smith"
+    {
+        team = "The Agents";
+    }
+}
+}}}
