@@ -66,4 +66,19 @@ update mytable where(password == "SomeAnotherRandomPassword") password = "123456
 }}}
 
 == `boolean` data type ==
+
+The logical data type `boolean` can hold only one of these two values: `true` or `false`.
+
+{{{
+table mytable
+{
+    name: string;
+    active: boolean;
+
+    insert "John", true;
+}
+
+update mytable where (name == "John") active = false;
+}}}
+
 == `list` data type ==
