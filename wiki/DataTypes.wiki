@@ -84,3 +84,18 @@ update mytable where (name == "John") active = false;
 }}}
 
 == `list` data type ==
+
+The `list` data type is a special field that can hold a list of arbitrary data. The type of data `list` can hold is defined just before the `list` keyword. If no data type is defined, RSDB will use `string` by default.
+
+{{{
+table mytable
+{
+    name: string;
+    preferred_fruits: list;
+    lucky_numbers: number list;
+
+    insert "Peter", ("Banana", "Peach", "Orange"), (10, 22, 42, 54);
+}
+}}}
+
+For examples of how to get an item from a `list`, read the QueryingTheDatabase page.
