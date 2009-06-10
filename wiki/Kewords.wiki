@@ -1,0 +1,11 @@
+#summary Reserved keywords
+#labels Phase-Requirements,Phase-Design,Phase-Implementation
+= Introduction =
+
+List of reserved keywords in the RSDB.
+
+The keywords can be used as database/table/field/procedure names if double-quoted.
+
+= Details =
+
+`database`, `matchs`, `table`, `update`, `where`.
