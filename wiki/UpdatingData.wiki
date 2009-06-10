@@ -10,14 +10,14 @@ There is a few ways to update data on the database. There is a way for single ro
 {{{
 update mytable
 {
-    where (name = "John") name = "Peter";
+    where (name == "John") name = "Peter";
 }
 }}}
 
 Or, in most short way.
 
 {{{
-update mytable where (name = "John") name = "Peter";
+update mytable where (name == "John") name = "Peter";
 }}}
 
 = Updating multiple columns in a single row =
@@ -25,7 +25,7 @@ update mytable where (name = "John") name = "Peter";
 {{{
 update mytable
 {
-    where (name = "John")
+    where (name == "John")
     {
         name = "Peter";
         age = 42;
