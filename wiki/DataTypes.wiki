@@ -23,11 +23,13 @@ This type is always 16-bit Unicode. But it can be stored as an 8-bits Unicode if
 
 == `number` data type ==
 
-The `number` type stores multi-type multi-precision numbers, like naturals (42), float-point numbers (0.042), hexadecimals (42h), octals (42o), binaries (101010b) and even scientific notated numbers (2.2+45e).
+The `number` type stores multi-type multi-precision numbers, like naturals (42), float-point numbers (0.042), hexadecimals (42h), octals (42o), binaries (101010b) and even scientific notated numbers (2.2+45e). Note that the leading letter will determine the type of the number, except for natural and precision numbers.
+
+The range of values that `number` can hold varies from a platform to another.
 
 == `string` data type ==
 
-A fixed-length version of `text` type. The difference between `string` and `text` type is the optimization around the code, make `string` faster to read and manipulate than `text`. By default, the maximum size that `string`type can hold is 256 Unicode characters in the 16-bit format. But you can declare any arbitrary size for the field putting it between parenthesis. By example:
+A fixed-length version of `text` type. The difference between `string` and `text` type is the optimization around the code, make `string` faster to read and manipulate than `text`. By default, the maximum size that `string` type can hold is 256 Unicode characters in the 16-bit format. But you can declare any arbitrary size for the field putting it between parenthesis. By example:
 
 {{{
 table mytable
