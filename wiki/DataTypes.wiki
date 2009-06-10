@@ -27,7 +27,7 @@ The `number` type stores multi-type multi-precision numbers, like naturals (42),
 
 == `string` data type ==
 
-A fixed-length version of `text` type. The diference between `string` and `text` type is the optmization arround de code, make `string` faster to read and manipulate than `text`. By default, the maximum size that `string`type can hold is 256 Unicode characters in the 16-bit format. But you can declare an arbitrary size for the field put it between parenthesis. By example:
+A fixed-length version of `text` type. The difference between `string` and `text` type is the optimization around the code, make `string` faster to read and manipulate than `text`. By default, the maximum size that `string`type can hold is 256 Unicode characters in the 16-bit format. But you can declare any arbitrary size for the field putting it between parenthesis. By example:
 
 {{{
 table mytable
@@ -40,5 +40,30 @@ table mytable
 In the example above, `name` can hold a string with a maximum size of 256 characters, and `description` can hold a maximum string of 2048 characters. The maximum length that can be declared for a `string` field is 4294967295 characters (about 4 gigabytes.) The minimum length is 1.
 
 == `md5` data type ==
+
+Store MD5 sum for a given data. You can find more information about MD5 and how and when it is used in the Wikipedia: http://en.wikipedia.org/wiki/MD5
+
+The `md5` field works like and ordinary `string` field and it's behavior is transparent to the programmer. So, the content of the field cannot be retrieved on normal ways. All you can do is set, update or compare strings against its MD5 sum.
+
+Consider the example.
+
+{{{
+update mytable where(name == "John") password = "SomeRandomPassword";
+}}}
+
+If the type of the field `password` is `md5`, then `"SomeRandomPassword"` will be stored as a 32 hexadecimal characters string that represent it's MD5 sum.
+
+It's wrong try to compare the `password` field against an another MD5 sum. So the code below will doesn't work in the expect way.
+
+{{{
+update mytable where(password == "ae2b1fca515949e5d54fb22b8ed95575") password = null;
+}}}
+
+As the MD5 manipulation occurs transparent for the user, RSDB will try to calculate the MD5 sum of the string `"ae2b1fca515949e5d54fb22b8ed95575"` before test it, which lead to an incorrect behavior. The right way to do the comparison is to let the RSDB does all the MD5 calculations by itself, like below.
+
+{{{
+update mytable where(password == "SomeAnotherRandomPassword") password = "1234567";
+}}}
+
 == `boolean` data type ==
 == `list` data type ==
