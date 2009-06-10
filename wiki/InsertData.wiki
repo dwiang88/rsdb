@@ -72,7 +72,7 @@ table mytable
 
     insert
     {
-        "John", "123"
+        "John", "123";
         "Peter", "321";
         "Maxwell", "567";
         "Denise", "44667";
