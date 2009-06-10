@@ -80,4 +80,4 @@ table mytable
 }
 }}}
 
-The position of the `insert` inside the `table` is irrelevant as the column definition will always be executed first.
+The position of the `insert` inside the `table` block is irrelevant as the column definition will always be executed first.
