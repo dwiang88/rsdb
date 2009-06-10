@@ -1,0 +1,14 @@
+#summary Some examples on how to retrieve data from a database.
+#labels Phase-Requirements,Phase-Design,Phase-Implementation
+
+= Introduction =
+
+Getting data from the database can be done by using the `query` command.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
