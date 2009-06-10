@@ -14,6 +14,12 @@ update mytable
 }
 }}}
 
+Or, in most short way.
+
+{{{
+update mytable where (name = "John") name = "Peter";
+}}}
+
 = Updating multiple columns in a single row =
 
 {{{
@@ -32,7 +38,7 @@ update mytable
 {{{
 update mytable
 {
-    where (age >= 42)
+    where (age >= 42 && name != "Anderson")
     {
         position = "Senior";
     }
@@ -61,5 +67,6 @@ update mytable
 update mytable
 {
     access = "user";
+    password = "123";
 }
 }}}
