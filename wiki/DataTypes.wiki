@@ -53,7 +53,7 @@ update mytable where(name == "John") password = "SomeRandomPassword";
 
 If the type of the field `password` is `md5`, then `"SomeRandomPassword"` will be stored as a 32 hexadecimal characters string that represent it's MD5 sum.
 
-It's wrong try to compare the `password` field against an another MD5 sum. So the code below will doesn't work in the expect way.
+It's wrong try to compare the `password` field against an another MD5 sum. So the code below will doesn't work in the expected way.
 
 {{{
 update mytable where(password == "ae2b1fca515949e5d54fb22b8ed95575") password = null;
