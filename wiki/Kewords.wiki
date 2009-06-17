@@ -8,4 +8,4 @@ The keywords can be used as database/table/field/procedure names if double-quote
 
 = The reserved keywords =
 
-`database`, `insert`, `matchs`, `table`, `update`, `where`.
+`database`, `get`, `insert`, `matchs`, `query`, `table`, `update`, `where`.
