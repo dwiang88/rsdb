@@ -1,0 +1,54 @@
+# Introduction #
+
+Show common syntax to create databases and table, and introduce basic types for fields.
+
+
+# Details #
+
+## Creating a new empty database ##
+
+```
+database mydatabase;
+```
+
+The line above create a new empty database called `mydatabase`. The database scope is global if it is created from the command-line interface or inherent to file scope if it is created from a .rsdb-structure file.
+
+## Creating a new empty table ##
+
+```
+table mytable;
+```
+
+The line above create a new empty table called `mytable` in the global scope. To define a database scope for your table, you can use the syntax below.
+
+```
+table mydatabase.mytable;
+```
+
+If the table is defined during the database creation, the syntax below can do the trick.
+
+```
+database mydatabase
+{
+    table mytable;
+}
+```
+
+This is essential if the database structure is defined in a .rsdb-structure file.
+
+## A table with columns ##
+
+If you want to create a simple table like a friends name/birthday/email table, you can do it by using the code below.
+
+```
+table friends
+{
+    name: text;
+    birthday: date;
+    email: text;
+}
+```
+
+The syntax `field-name: type;` is self-descriptive for who barely know database structures. Each `field-name` is a column in the table with the type `type`. The type `text` means for a text field with unlimited size. The `date` type means a simple date with days, months and years.
+
+You can view all supported data types and an explanation at the [DataTypes](DataTypes.md) page.

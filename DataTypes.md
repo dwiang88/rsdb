@@ -1,0 +1,100 @@
+# Introduction #
+
+RSDB supported the mostly used types of data. You can see the list below.
+
+
+# Details #
+
+| **Type** | **Description** |
+|:---------|:----------------|
+| `text`   | Holds an unlimited length Unicode text. When used, it must be always surrounded by double quotes. |
+| `number` | Holds a variable precision number. |
+| `string` | Holds a fixed-size Unicode text. _(Default is 256.)_ |
+| `md5`    | Holds an 128 bits (16 bytes) MD5 sum. |
+| `boolean` | Holds a value that can vary between `false` and `true`. |
+| `list`   | Holds a list of constant string values. |
+
+# Description #
+
+## `text` data type ##
+
+This type is always 16-bit Unicode. But it can be stored as an 8-bits Unicode if the text is ASCII-only. There is no limit for the length of the content of a `text` field.
+
+## `number` data type ##
+
+The `number` type stores multi-type multi-precision numbers, like naturals (42), float-point numbers (0.042), hexadecimals (42h), octals (42o), binaries (101010b) and even scientific notated numbers (2.2+45e). Note that the leading letter will determine the type of the number, except for natural and precision numbers.
+
+The range of values that `number` can hold varies from a platform to another.
+
+## `string` data type ##
+
+A fixed-length version of `text` type. The difference between `string` and `text` type is the optimization around the code, make `string` faster to read and manipulate than `text`. By default, the maximum size that `string` type can hold is 256 Unicode characters in the 16-bit format. But you can declare any arbitrary size for the field putting it between parenthesis. By example:
+
+```
+table mytable
+{
+    name: string;
+    description: string(2048);
+}
+```
+
+In the example above, `name` can hold a string with a maximum size of 256 characters, and `description` can hold a maximum string of 2048 characters. The maximum length that can be declared for a `string` field is 4294967295 characters (about 4 gigabytes.) The minimum length is 1.
+
+## `md5` data type ##
+
+Store MD5 sum for a given data. You can find more information about MD5 and how and when it is used in the Wikipedia: http://en.wikipedia.org/wiki/MD5
+
+The `md5` field works like and ordinary `string` field and it's behavior is transparent to the programmer. So, the content of the field cannot be retrieved on normal ways. All you can do is set, update or compare strings against its MD5 sum.
+
+Consider the example.
+
+```
+update mytable where(name == "John") password = "SomeRandomPassword";
+```
+
+If the type of the field `password` is `md5`, then `"SomeRandomPassword"` will be stored as a 32 hexadecimal characters string that represent it's MD5 sum.
+
+It's wrong try to compare the `password` field against an another MD5 sum. So the code below will doesn't work in the expected way.
+
+```
+update mytable where(password == "ae2b1fca515949e5d54fb22b8ed95575") password = null;
+```
+
+As the MD5 manipulation occurs transparent for the user, RSDB will try to calculate the MD5 sum of the string `"ae2b1fca515949e5d54fb22b8ed95575"` before test it, which lead to an incorrect behavior. The right way to do the comparison is to let the RSDB does all the MD5 calculations by itself, like below.
+
+```
+update mytable where(password == "SomeAnotherRandomPassword") password = "1234567";
+```
+
+## `boolean` data type ##
+
+The logical data type `boolean` can hold only one of these two values: `true` or `false`.
+
+```
+table mytable
+{
+    name: string;
+    active: boolean;
+
+    insert "John", true;
+}
+
+update mytable where (name == "John") active = false;
+```
+
+## `list` data type ##
+
+The `list` data type is a special field that can hold a list of arbitrary data. The type of data `list` can hold is defined just before the `list` keyword. If no data type is defined, RSDB will use `string` by default.
+
+```
+table mytable
+{
+    name: string;
+    preferred_fruits: list;
+    lucky_numbers: number list;
+
+    insert "Peter", ("Banana", "Peach", "Orange"), (10, 22, 42, 54);
+}
+```
+
+For examples of how to get an item from a `list`, read the QueryingTheDatabase page.
